@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { bot } = require('./config.json');
+require('dotenv').config();
 const client = new Discord.Client();
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
@@ -13,4 +13,4 @@ for (const file of eventFiles) {
 	}
 }
 
-client.login(process.argv[2] === 'live' ? bot.token : bot.testToken);
+client.login(process.argv[2] === 'live' ? process.env.token : process.env.testToken);
