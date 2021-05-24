@@ -15,7 +15,7 @@ module.exports = {
     const joinedAt = guildMember.joinedAt;
 		const leaveEmbed = new Discord.MessageEmbed()
 			.setAuthor(guildMember.user.tag, guildMember.user.displayAvatarURL(), lastMessageURL)
-			.setDescription(`${guildMember.user.toString()} joined \n**Account created:** ${shortDate(createdAt)} \n**User joined:** ${shortDate(joinedAt)}`)
+			.setDescription(`${guildMember.user.toString()} left \n**Account created:** ${shortDate(createdAt)} \n**User joined:** ${shortDate(joinedAt)}`)
 			.setColor('RED');
 		client.channels.cache.get(guild.inviteChannelID).send(leaveEmbed);
 	},
