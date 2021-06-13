@@ -9,7 +9,7 @@ module.exports = {
 		if (guildMember.guild.id !== guild.id) return;
 		if (!guildMember.user.bot) {
 			const welcomeEmbed = new Discord.MessageEmbed()
-				.addField('Welkom in Révolution!', '• Zorg ervoor dat je de <#731206630112231464> hebt gelezen.\n• Blijf up to date met Révolution in <#599235313617076235>.\n• Bekijk aankomende events in <#767461189928091678>.\n• Mocht je ook Brawl Stars spelen, stuur een screenshot van je account in <#599241180466774016> om extra roles te krijgen.')
+				.addField('Welkom in Révolution!', '• Lees de <#731206630112231464>.\n• Blijf up to date met Révolution in <#599235313617076235>.\n• Bekijk aankomende events in <#767461189928091678>.\n• Voor extra Brawl Stars roles, stuur een screenshot van je account in <#599241180466774016>.')
 				.setAuthor(guildMember.displayName, guildMember.user.displayAvatarURL())
 				.setThumbnail('https://i.imgur.com/erS7Qt6.gif')
 				.setColor(guild.color);
