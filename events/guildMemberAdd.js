@@ -8,9 +8,10 @@ module.exports = {
 		let welcomeMessage = null;
 		if (guildMember.guild.id !== guild.id) return;
 		if (!guildMember.user.bot) {
-			const welcomeEmbed = guild.welcomeEmbed
+			let welcomeEmbed = new Discord.MessageEmbed()
 				.setAuthor(guildMember.displayName, guildMember.user.displayAvatarURL())
 				.setColor(guild.color);
+			welcomeEmbed = Object.assign(welcomeEmbed, guild.welcomeEmbed);
 			welcomeMessage = await client.channels.cache.get(guild.mainChannelID).send(`||${guildMember.toString()}||`, welcomeEmbed);
 		}
 		const createdAt = guildMember.user.createdAt;
