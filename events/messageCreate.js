@@ -14,7 +14,7 @@ for (const folder of commandFolders) {
 }
 
 module.exports = {
-  name: 'message',
+  name: 'messageCreate',
   execute(message) {
 		if (!message.content.startsWith(bot.prefix) || message.author.bot) return;
 		const args = message.content.slice(bot.prefix.length).trim().split(/ +/);
@@ -32,10 +32,11 @@ module.exports = {
 			command.execute(message, args);
 		} catch (error) {
 			console.error(error);
-			message.channel.send(new Discord.MessageEmbed()
+			const errorEmbed = new Discord.MessageEmbed()
 				.setTitle('Error')
 				.setColor('RED')
-				.setDescription(`An error occured whilst executing the \`${commandName}\` command:\n\`\`\`${error.message}\`\`\``));
+				.setDescription(`An error occured whilst executing the \`${commandName}\` command:\n\`\`\`${error.message}\`\`\``);
+			message.channel.send({ embeds: [errorEmbed] });
 		}
   },
 };

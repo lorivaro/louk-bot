@@ -6,17 +6,13 @@ module.exports = {
 	name: 'guildMemberRemove',
 	async execute(guildMember, client) {
 		if (guildMember.guild.id !== guild.id) return;
-    let lastMessageURL = null;
-    if (guildMember.lastMessageID) {
-      const lastMessage = await client.channels.cache.get(guildMember.lastMessageChannelID).messages.fetch(guildMember.lastMessageID);
-			lastMessageURL = lastMessage.url;
-    }
-		const createdAt = guildMember.user.createdAt;
-    const joinedAt = guildMember.joinedAt;
+
+		const createdAt = shortDate(guildMember.user.createdAt);
+    const joinedAt = shortDate(guildMember.joinedAt);
 		const leaveEmbed = new Discord.MessageEmbed()
-			.setAuthor(guildMember.user.tag, guildMember.user.displayAvatarURL(), lastMessageURL)
-			.setDescription(`${guildMember.user.toString()} left \n**Account created:** ${shortDate(createdAt)} \n**User joined:** ${shortDate(joinedAt)}`)
+			.setAuthor(guildMember.user.tag, guildMember.user.displayAvatarURL())
+			.setDescription(`${guildMember.user.toString()} left \n**Created:** ${createdAt} \n**Joined:** ${joinedAt}\n**ID:** ${guildMember.user.id}`)
 			.setColor('RED');
-		client.channels.cache.get(guild.inviteChannelID).send(leaveEmbed);
+		client.channels.cache.get(guild.inviteChannelID).send({ embeds: [leaveEmbed] });
 	},
 };

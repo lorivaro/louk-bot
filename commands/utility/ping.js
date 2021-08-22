@@ -7,6 +7,6 @@ module.exports = {
     global: true,
     execute(message) {
       const pingEmbed = new Discord.MessageEmbed().setDescription(`🏓 Pong! \`${(Date.now() - message.createdTimestamp)} ms\``).setColor(guild.color);
-      return message.channel.send(pingEmbed);
+      return message.reply({ embeds: [pingEmbed], allowedMentions: { repliedUser: false } });
     },
 };
