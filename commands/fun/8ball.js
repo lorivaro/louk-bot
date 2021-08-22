@@ -47,6 +47,6 @@ module.exports = {
         .setColor('BLURPLE');
 
       message.reply({ embeds: [shakeEmbed], allowedMentions: { repliedUser: false } })
-        .then(msg => setTimeout(() => msg.channel.messages.cache.get(msg.id) && msg.edit({ embeds: [finalEmbed] }), 10000));
+        .then(msg => setTimeout(() => msg.channel.messages.cache.get(msg.id) && msg.edit({ embeds: [finalEmbed] }), 3000));
     },
 };
