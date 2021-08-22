@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const { guild } = require('../config.json');
-const shortDate = require('../utils/shortDate');
 
 module.exports = {
 	name: 'guildMemberAdd',
@@ -15,10 +14,10 @@ module.exports = {
 		welcomeEmbed = Object.assign(welcomeEmbed, guild.welcomeEmbed);
 		welcomeMessage = await client.channels.cache.get(guild.mainChannelID).send({ content: `||${guildMember.toString()}||`, embeds: [welcomeEmbed] });
 
-		const createdAt = shortDate(guildMember.user.createdAt);
+		const createdAt = guildMember.user.createdTimestamp;
 		const joinEmbed = new Discord.MessageEmbed()
 			.setAuthor(guildMember.user.tag, guildMember.user.displayAvatarURL(), welcomeMessage.url)
-			.setDescription(`${guildMember.user.toString()} joined \n**Created:** ${createdAt}\n**ID:** ${guildMember.user.id}`)
+			.setDescription(`${guildMember.user.toString()} joined \n**Created:** <t:${createdAt}:d>\n**ID:** ${guildMember.user.id}`)
 			.setColor('GREEN');
 		client.channels.cache.get(guild.inviteChannelID).send({ embeds: [joinEmbed] });
 	},
