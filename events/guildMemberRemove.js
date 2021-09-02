@@ -3,7 +3,7 @@ const { guild } = require('../config.json');
 
 module.exports = {
 	name: 'guildMemberRemove',
-	async execute(guildMember, client) {
+	execute(guildMember, client) {
 		if (guildMember.guild.id !== guild.id) return;
 
 		const createdAt = guildMember.user.createdTimestamp.toString().slice(0, -3);
