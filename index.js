@@ -1,7 +1,10 @@
 const fs = require('fs');
 const { Client, Intents } = require('discord.js');
 require('dotenv').config();
-const client = new Client({ intents: Object.values(Intents.FLAGS) });
+const client = new Client({
+	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+	intents: Object.values(Intents.FLAGS),
+});
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
 for (const file of eventFiles) {
