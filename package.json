@@ -1,17 +1,17 @@
 {
-  "name": "revo",
+  "name": "louk-bot",
   "version": "3.0.0",
   "description": "A Discord bot",
   "main": "index.js",
   "scripts": {
     "test": "node .",
-    "start": "pm2 start index.js -n revo -- live"
+    "start": "pm2 start index.js -n louk-bot -- live"
   },
-  "author": "Louk",
+  "author": "yo_louk",
   "license": "ISC",
   "dependencies": {
     "cron": "^1.8.2",
-    "discord.js": "^13.1.0",
+    "discord.js": "^13.2.0",
     "dotenv": "^10.0.0",
     "node": "^16.6.1"
   }
