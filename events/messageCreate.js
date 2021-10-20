@@ -14,8 +14,8 @@ for (const folder of commandFolders) {
 }
 
 module.exports = {
-  name: 'messageCreate',
-  execute(message) {
+	name: 'messageCreate',
+	execute(message) {
 		if (!message.content.startsWith(bot.prefix) || message.author.bot) return;
 		const args = message.content.slice(bot.prefix.length).trim().split(/ +/);
 		const commandName = args.shift().toLowerCase();
@@ -26,7 +26,7 @@ module.exports = {
 			if (!command.global) {
 				if (message.author.id !== bot.ownerID) return;
 			}
-    }
+    	}
 
 		try {
 			command.execute(message, args);
@@ -38,5 +38,5 @@ module.exports = {
 				.setDescription(`An error occured whilst executing the \`${commandName}\` command:\n\`\`\`${error.message}\`\`\``);
 			message.channel.send({ embeds: [errorEmbed] });
 		}
-  },
+	},
 };
