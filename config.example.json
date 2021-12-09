@@ -1,0 +1,33 @@
+{
+  "bot": {
+      "prefix": "$",
+      "ownerID": "[Bot owner ID]",
+      "presence": {
+          "activities": [{ 
+              "name": "nothing",
+              "type": "PLAYING"
+          }],
+          "status": "online"
+      }
+  },
+  "guild": { 
+      "name": "[Server name]",
+      "id": "[Server ID]",
+      "color": "0xffffff",
+      "adminID": "[Server administrator role ID]",
+      "staffID": "[Server staff role ID]",
+      "mainChannelID": "[Main chat channel ID]",
+      "inviteChannelID": "[Invite channel ID]",
+      "welcomeEmbed": {
+          "thumbnail": {
+              "url": "[Thumbnail image url]"
+          },
+          "fields": [
+              {
+                  "name": "[Field title]",
+                  "value": "[Field description]"
+              }
+          ]
+      }
+  }
+}
