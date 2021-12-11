@@ -23,19 +23,17 @@ module.exports = {
 
 		if (!command) return;
 		if (!message.guild || message.guild.id !== guild.id) {
-			if (!command.global) {
-				if (message.author.id !== bot.ownerID) return;
-			}
-    	}
+			if (!command.global && message.author.id !== bot.ownerID) return;
+		}
 
 		try {
 			command.execute(message, args);
 		} catch (error) {
-			console.error(error);
+			console.log(error);
 			const errorEmbed = new Discord.MessageEmbed()
 				.setTitle('Error')
 				.setColor('RED')
-				.setDescription(`An error occured whilst executing the \`${commandName}\` command:\n\`\`\`${error.message}\`\`\``);
+				.setDescription(`An error occurred whilst executing the \`${commandName}\` command:\n\`\`\`${error.message}\`\`\``);
 			message.channel.send({ embeds: [errorEmbed] });
 		}
 	},
