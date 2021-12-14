@@ -4,8 +4,8 @@
   "description": "A Discord bot",
   "main": "index.js",
   "scripts": {
-    "test": "node .",
-    "start": "pm2 start index.js -n louk-bot -- live"
+    "test": "node ./src/index.js",
+    "start": "pm2 start ./src/index.js -n louk-bot -- live"
   },
   "author": "yo_louk",
   "license": "ISC",

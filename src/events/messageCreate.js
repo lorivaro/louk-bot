@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const { bot, guild } = require('../../config.json');
-const client = require('../../index.js');
+const client = require('../index.js');
 client.commands = new Discord.Collection();
 
 const commandFolders = fs.readdirSync('./src/commands');
